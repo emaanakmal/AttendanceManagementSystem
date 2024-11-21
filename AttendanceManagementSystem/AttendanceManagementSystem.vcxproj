@@ -128,20 +128,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Attendance.cpp" />
+    <ClCompile Include="AttendanceReport.cpp" />
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="Leave.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
-    <ClCompile Include="Report.cpp" />
+    <ClCompile Include="LeaveReport.cpp" />
     <ClCompile Include="Supervisor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Attendance.h" />
+    <ClInclude Include="AttendanceReport.h" />
     <ClInclude Include="Director.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Guard.h" />
     <ClInclude Include="Leave.h" />
+    <ClInclude Include="LeaveReport.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Report.h" />
     <ClInclude Include="Supervisor.h" />

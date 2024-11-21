@@ -14,18 +14,4 @@ public:
     virtual ~Report() = default;
 };
 
-
-class AttendanceReport : public Report {
-public:
-    void generateReport() override;
-    void lowAttendanceReport();
-};
-
-
-class LeaveReport : public Report {
-public:
-    void generateReport() override;
-    void outstandingLeavesReport();
-};
-
 #endif
