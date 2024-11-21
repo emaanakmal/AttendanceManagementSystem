@@ -1,20 +1,21 @@
 #ifndef LEAVE_H
 #define LEAVE_H
-
+using namespace std;
+#include <iostream>
 #include <string>
 
 class Leave {
 private:
-    std::string ID;
-    std::string Name;
-    std::string LeavePeriod;
-    std::string Reason;
-    std::string DateOfApplication;
-    std::string LeaveType;
+    string EID;
+    int LeavePeriod;
+    char LeaveType;
 
 public:
-    bool requestApproval();
+    Leave(string id, int lvprd, char lvtype) : EID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
+
+    bool RequestApproval(Supervisor* sup);
     void addLeave();
 };
 
 #endif
+

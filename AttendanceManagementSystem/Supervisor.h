@@ -2,19 +2,17 @@
 #define SUPERVISOR_H
 
 #include "Employee.h"
+#include "Person.h"
 
-class Supervisor : public Employee {
+class Supervisor : public Person {
 public:
-    Supervisor(const std::string& id, const std::string& name)
-        : Employee(id, name) {
-        Position = "Supervisor";
-    }
+    Supervisor(const std::string& id, const std::string& name) : Person(id, name, "Supervisor") {}
 
-    void showLowAttendanceReport();
-    void showOutstandingLeaveReport();
-    void showAttendanceReport(const std::string& empID);
-    void showLeaveReport(const std::string& empID);
-    void reviewApplication();
+    //void showLowAttendanceReport();
+    //void showOutstandingLeaveReport();
+    //void showAttendanceReport(const std::string& empID);
+    //void showLeaveReport(const std::string& empID);
+    bool reviewApplication(string EID, int lvprd, char lvtype);
 };
 
 #endif

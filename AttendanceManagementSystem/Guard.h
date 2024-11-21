@@ -8,7 +8,7 @@ public:
     Guard(const std::string& id, const std::string& name)
         : Person(id, name, "Guard") {}
 
-    void markAttendance();
+    void markAttendance(int id);
 };
 
 #endif

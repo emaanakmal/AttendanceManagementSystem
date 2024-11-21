@@ -131,6 +131,7 @@
     <ClCompile Include="AttendanceReport.cpp" />
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="Guard.cpp" />
     <ClCompile Include="Leave.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
