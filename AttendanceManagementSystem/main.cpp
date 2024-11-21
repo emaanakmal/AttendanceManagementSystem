@@ -12,33 +12,5 @@ int main() {
     Director dir("D001", "Hannan");
     Guard guard("G001", "Emaan");
 
-    std::cout << "Employee actions:\n";
-    emp.checkIn();
-    emp.applyForLeave();
-    emp.showAttendanceReport();
-
-    std::cout << "\nSupervisor actions:\n";
-    sup.showLowAttendanceReport();
-    sup.reviewApplication();
-
-    std::cout << "\nDirector actions:\n";
-    dir.showAttendanceReport("E001");
-    dir.reviewApplication();
-
-    std::cout << "\nGuard actions:\n";
-    guard.markAttendance();
-
-    Attendance attendance;
-    attendance.updateRecord("E001", "09:00", "17:00");
-
-    Leave leave;
-    if (leave.requestApproval()) {
-        leave.addLeave();
-        std::cout << "Leave application approved and(girly pop) recorded.\n";
-    }
-    else {
-        std::cout << "Leave application rejected.\n";
-    }
-
     return 0;
 }
