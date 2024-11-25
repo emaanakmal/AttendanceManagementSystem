@@ -23,7 +23,15 @@ bool Supervisor::reviewApplication(string EID, int lvprd, char lvtype)
 		{
 			cout << "Enter 1 for approval and 0 for denying "; cin >> decision; cout << "\n";
 		}
-	
+		
+	case 'U':
+		cout << "Enter 1 for approval and 0 for denial: "; cin >> decision; cout << "\n";
+
+	case 'O':
+		cout << "Enter 1 for approval or 0 for denial: "; cin >> decision; cout << endl;
 	}
+	
+
+
 	return decision;
 }
