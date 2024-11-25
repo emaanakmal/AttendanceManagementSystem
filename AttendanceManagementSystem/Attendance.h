@@ -10,7 +10,7 @@ class Attendance {
     string PunchOutTime;
 
 public:
-    void updateRecord(const string& empID, const string& punchIn, const string& punchOut);
+    void updateRecord();
 };
 
 #endif

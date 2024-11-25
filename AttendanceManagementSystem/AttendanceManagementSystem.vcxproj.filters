@@ -42,6 +42,12 @@
     <ClCompile Include="AttendanceReport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Guard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadWrite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -72,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AttendanceReport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadWrite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

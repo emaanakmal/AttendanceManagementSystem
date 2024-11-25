@@ -136,6 +136,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="LeaveReport.cpp" />
+    <ClCompile Include="ReadWrite.cpp" />
     <ClCompile Include="Supervisor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="Leave.h" />
     <ClInclude Include="LeaveReport.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="ReadWrite.h" />
     <ClInclude Include="Report.h" />
     <ClInclude Include="Supervisor.h" />
   </ItemGroup>
