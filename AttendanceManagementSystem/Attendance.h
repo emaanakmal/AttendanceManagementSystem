@@ -5,12 +5,8 @@
 using namespace std; 
 
 class Attendance {
-    string EmployeeID;
-    string PunchInTime;
-    string PunchOutTime;
-
 public:
-    void updateRecord();
+    void update(string empID, string date, string startTime, string endTime);
 };
 
 #endif

@@ -13,7 +13,7 @@ private:
 public:
     Leave(string id, int lvprd, char lvtype) : EID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
 
-    bool RequestApproval(Supervisor* sup);
+    bool RequestApproval();
     void addLeave();
 };
 

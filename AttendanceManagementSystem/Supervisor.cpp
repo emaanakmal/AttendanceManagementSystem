@@ -5,7 +5,7 @@ using namespace std;
 bool Supervisor::reviewApplication(string EID, int lvprd, char lvtype)
 {
 	bool decision = 1;
-	int daysleft;
+	int daysleft = 5;
 	cout << "Employee " << EID << " is requesting for a " << lvtype << " leave for a time period of " << lvprd << " days\n";
 	switch (lvtype)
 	{
@@ -14,7 +14,7 @@ bool Supervisor::reviewApplication(string EID, int lvprd, char lvtype)
 		//daysleft = readfromdatabase();
 		if (daysleft < lvprd)
 			decision = 0;
-
+	
 	case 'E':
 		//daysleft readfromdatabase();
 		if (daysleft < lvprd)
@@ -23,7 +23,7 @@ bool Supervisor::reviewApplication(string EID, int lvprd, char lvtype)
 		{
 			cout << "Enter 1 for approval and 0 for denying "; cin >> decision; cout << "\n";
 		}
-	default:
+	
 	}
 	return decision;
 }

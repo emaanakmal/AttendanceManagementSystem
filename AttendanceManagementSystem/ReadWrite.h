@@ -10,12 +10,11 @@ class ReadWriteAttendance
 private:
 	string EmpID;
 	string date;
-	int startTime;
-	int endTime;
+	string startTime;
+	string endTime;
 public:
-	ReadWriteAttendance(string id, string date, int start, int end) : EmpID(id), date(date), startTime(start), endTime(end) {}
-	void writeStart();
-	void writeEnd();
+	ReadWriteAttendance(string id, string date, string start, string end) : EmpID(id), date(date), startTime(start), endTime(end) {}
+	void write();
 };
 
 

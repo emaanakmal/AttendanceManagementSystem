@@ -4,11 +4,12 @@
 #include <iostream>
 using namespace std;
 
-bool Leave::RequestApproval(Supervisor* sup)
+bool Leave:: RequestApproval()
 {
-	bool decision = sup->reviewApplication(EID, LeavePeriod, LeaveType);
+	Supervisor s1("supervisor1", "Supervisor");
+	bool decision = s1.reviewApplication(EID, LeavePeriod, LeaveType);
 	return decision;
-}
+}	
 
 void Leave::addLeave()
 {
