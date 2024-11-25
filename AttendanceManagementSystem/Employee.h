@@ -23,6 +23,13 @@ public:
         }
         create << ID << endl;
         create.close();
+
+        ofstream create1("LeftLeaves.txt", ios::app);
+        if (!create1.is_open()) {
+            cout << "Unable to open the file!" << endl;
+            return;
+        }
+        create1 << ID << " 15" << " " << "21" << endl;
     }
 
     void showAttendanceReport();

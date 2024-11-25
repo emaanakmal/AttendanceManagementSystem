@@ -15,7 +15,9 @@ void Employee::showLeaveReport() {
 void Employee::applyForLeave() {
     int lvprd;
     char lvtype;
-   
+    string lvdate;
+
+    cout << "Enter date of application: "; cin >> lvdate; cout << endl;
     cout << "Enter leave period: "; cin >> lvprd; cout << "\n";
     cout << "Casual(C) Earned(E) Official(E) Unpaid(U)\nEnter leave type: "; cin >> lvtype; cout << "\n";
     if (lvtype == 'C' && lvprd > 4)
@@ -30,6 +32,7 @@ void Employee::applyForLeave() {
     {
         cout << "Request accpeted!\n";
         lv.addLeave();
+        lv.updateTable();
     }
     else
         cout << "Request denied!\n";

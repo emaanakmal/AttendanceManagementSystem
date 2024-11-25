@@ -15,6 +15,7 @@ public:
 
     bool RequestApproval();
     void addLeave();
+    void updateTable();
 };
 
 #endif

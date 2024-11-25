@@ -17,5 +17,17 @@ public:
 	void write();
 };
 
+class ReadWriteLeave
+{
+private:
+	string EID;
+	int LeavePeriod;
+	char LeaveType;
+public:
+	ReadWriteLeave(string id, int lvprd, char lvtype) : EID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
+	void write();
+	void readleftleaves(string* Cleft, string* Eleft);
+};
+
 
 #endif
