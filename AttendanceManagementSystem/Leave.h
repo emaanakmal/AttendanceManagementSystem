@@ -14,7 +14,7 @@ public:
     Leave(string id, int lvprd, char lvtype) : EID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
 
     bool RequestApproval();
-    void addLeave();
+    void addLeave(string date);
     void updateTable();
 };
 

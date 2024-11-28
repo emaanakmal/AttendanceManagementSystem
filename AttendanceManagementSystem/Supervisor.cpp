@@ -38,3 +38,35 @@ bool Supervisor::reviewApplication(string EID, int lvprd, char lvtype)
 
 	return decision;
 }
+
+void Supervisor::showLowAttendanceReport()
+{
+    int month;
+    double percentage;
+    cout << "Enter the month you want to see a low attendance report for: "; cin >> month; cout << endl;
+    cout << "Enter the minimum percentage allowed: "; cin >> percentage; cout << endl;
+    ReadWriteAttendance rwa("", "", "", "");
+    rwa.displayLowAttendance(month, percentage);
+}
+
+void Supervisor::showAttendanceReport()
+{
+    string EID;
+    cout << "Enter Employee ID: "; cin >> EID; cout << endl;
+    ReadWriteAttendance rwa(EID, "", "", "");
+    rwa.displayAttendance();
+}
+
+void Supervisor::showOutstandingLeaveReport()
+{
+    ReadWriteLeave rwl("", 0, 'a');
+    rwl.displayLeftLeaves();
+}
+
+void Supervisor::showLeaveReport()
+{
+    string EID;
+    cout << "Enter the Employee ID of the employee whose Leave details are required: "; cin >> EID; cout << endl;
+    ReadWriteLeave rwl(EID, 0, 'a');
+    rwl.displayLeaveDetails();
+}

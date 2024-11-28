@@ -1,11 +1,13 @@
 #include <iostream>
 #include "Employee.h"
+#include"ReadWrite.h"
 #include "Supervisor.h"
 #include "Guard.h"
 #include "Leave.h"
 
 void Employee::showAttendanceReport() {
-   
+    ReadWriteAttendance rwa(ID, "", "", "");
+    rwa.displayAttendance();
 }
 
 void Employee::showLeaveReport() {
@@ -31,7 +33,7 @@ void Employee::applyForLeave() {
     if (decision == 1)
     {
         cout << "Request accpeted!\n";
-        lv.addLeave();
+        lv.addLeave(lvdate);
         lv.updateTable();
     }
     else
@@ -40,4 +42,9 @@ void Employee::applyForLeave() {
 
 void Employee::MarkAttendance(Guard* grd) {
     grd->mark(ID);
+}
+
+string Employee::returnEID()
+{
+    return ID;
 }

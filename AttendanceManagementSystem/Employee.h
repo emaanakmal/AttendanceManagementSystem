@@ -36,6 +36,7 @@ public:
     void showLeaveReport();
     void applyForLeave();
     void MarkAttendance(Guard* grd);
+    string returnEID();
 };
 
 #endif

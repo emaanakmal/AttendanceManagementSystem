@@ -15,18 +15,22 @@ private:
 public:
 	ReadWriteAttendance(string id, string date, string start, string end) : EmpID(id), date(date), startTime(start), endTime(end) {}
 	void write();
+	void displayAttendance();
+	void displayLowAttendance(int month, double minPercentage);
 };
 
 class ReadWriteLeave
 {
 private:
-	string EID;
+	string EmpID;
 	int LeavePeriod;
 	char LeaveType;
 public:
-	ReadWriteLeave(string id, int lvprd, char lvtype) : EID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
+	ReadWriteLeave(string id, int lvprd, char lvtype) : EmpID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
 	void write();
 	void readleftleaves(string* Cleft, string* Eleft);
+	void displayLeftLeaves();
+	void displayLeaveDetails();
 };
 
 
