@@ -161,6 +161,68 @@ void ReadWriteAttendance::displayLowAttendance(int month, double minPercentage) 
     }
 }
 
+void ReadWriteAttendance::writeOfficialLeave(int lvprd)
+{
+    fstream file("Attendance.txt", ios::in | ios::out);
+    if (!file.is_open()) {
+        cerr << "Error: Could not open file." << endl;
+        return;
+    }
+
+    // Read the entire file content into memory
+    stringstream buffer;
+    buffer << file.rdbuf();
+    string fileContent = buffer.str();
+
+    // Close the file for reading, will reopen for writing later
+    file.close();
+
+    // Find the employee's record in the file
+    size_t empPos = fileContent.find(EmpID);
+    if (empPos == string::npos) {
+        cerr << "Error: Employee ID not found in the file." << endl;
+        return;
+    }
+
+    // Parse the start date (DD/MM format)
+    size_t slashPos = date.find('/');
+    if (slashPos == string::npos) {
+        cerr << "Error: Invalid start date format. Use DD/MM format." << endl;
+        return;
+    }
+
+    int day = stoi(date.substr(0, slashPos));
+    int month = stoi(date.substr(slashPos + 1));
+
+    // Generate attendance entries for the leave days
+    stringstream leaveEntries;
+    for (int i = 0; i < lvprd; ++i) {
+        leaveEntries << day << "/" << month << " 8 ";
+        ++day;
+
+        // Handle month-end wrapping
+        if (day > 31) { // Assuming 31 days for simplicity; you can enhance this to handle exact month lengths.
+            day = 1;
+            ++month;
+            if (month > 12) {
+                month = 1; // Wrap to January
+            }
+        }
+    }
+
+    // Insert leave entries into the employee's record
+    size_t recordEnd = fileContent.find('\n', empPos);
+    if (recordEnd == string::npos) recordEnd = fileContent.length();
+    fileContent.insert(recordEnd, " " + leaveEntries.str());
+
+    // Write the updated content back to the file
+    file.open("Attendance.txt", ios::out | ios::trunc);
+    file << fileContent;
+    file.close();
+
+    cout << "Leave attendance marked successfully for Employee ID: " << EmpID << endl;
+}
+
 //------------------------------------------------------------------------//
 
 void ReadWriteLeave::write()
