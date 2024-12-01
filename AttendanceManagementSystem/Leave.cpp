@@ -84,7 +84,7 @@ void Leave::updateTable()
     {
         string start;
         cout << "Enter start date of leave: "; cin >> start; cout << endl;
-        ReadWriteAttendance rwa(EID, start, 0, 0);
+        ReadWriteAttendance rwa(EID, start, "", "");
         rwa.writeOfficialLeave(LeavePeriod);
     }
 	ReadWriteLeave rwl(EID, LeavePeriod, LeaveType);
