@@ -86,4 +86,12 @@
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="LeftLeaves.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Attendance.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

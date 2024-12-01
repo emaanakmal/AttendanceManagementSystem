@@ -18,18 +18,15 @@ int main() {
 	Supervisor s1("supervisor1", "Supervisor");
 	Director d1("director1", "Director");
 
-	s1.showLeaveReport();
-	//s1.showLowAttendanceReport();
-	//s1.showAttendanceReport();
-	//s1.showOutstandingLeaveReport();
-	
-	//e1.MarkAttendance(&g1);
-	//e1.showAttendanceReport();
-	//e2.MarkAttendance(&g1);
-	//e1.MarkAttendance(&g1);
-	//e2.MarkAttendance(&g1);
-	//e1.MarkAttendance(&g1);
-	//e2.MarkAttendance(&g1);
+	e1.MarkAttendance(&g1);
+	e1.showAttendanceReport();
 	e1.applyForLeave(&s1, &d1);
+	e1.showLeaveReport();
+
+	s1.showLeaveReport();
+	s1.showLowAttendanceReport();
+	s1.showAttendanceReport();
+	s1.showOutstandingLeaveReport();
+
     return 0;
 }

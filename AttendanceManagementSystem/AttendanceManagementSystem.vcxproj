@@ -154,6 +154,10 @@
   <ItemGroup>
     <None Include="..\weekly_attendance.csv" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Attendance.txt" />
+    <Text Include="LeftLeaves.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

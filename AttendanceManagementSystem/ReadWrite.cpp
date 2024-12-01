@@ -19,6 +19,7 @@ void ReadWriteAttendance::write()
     vector<string> lines;
     string line;
     bool found = false; // check if the employee ID was found
+
     while (getline(wr, line)) {
         stringstream ss(line);
         string currentEmpID;
@@ -37,18 +38,20 @@ void ReadWriteAttendance::write()
 
     wr.close();
 
+    // if employee id not found in file
     if (!found) {
         cout << "Employee ID " << EmpID << " not found in the file." << endl;
         return;
     }
 
-    // write the updated content back to the file
+    // writing the updated content back to attendance.txt
     ofstream outFile("Attendance.txt");
     if (!outFile.is_open()) {
         cout << "Unable to open the file for writing!" << endl;
         return;
     }
 
+    // iterate over lines and writes them to attendance.txt
     for (const auto& l : lines) {
         outFile << l << endl;
     }
@@ -59,12 +62,12 @@ void ReadWriteAttendance::write()
 }
 
 void ReadWriteAttendance::displayAttendance() {
+    // opening file and checking for error while opening
     ifstream file("Attendance.txt");
     if (!file.is_open()) {
         cerr << "Error: Could not open file." << endl;
         return;
     }
-
     string line;
     bool employeeFound = false;
 
@@ -75,7 +78,7 @@ void ReadWriteAttendance::displayAttendance() {
         ss >> id;
 
         // Check if the current line is for the given employee
-        if (id == EmpID) {
+        if (id == EmpID) { // print the attendance report
             employeeFound = true;
             cout << "Attendance for Employee ID: " << EmpID << endl;
             cout << "Date        Hours Worked" << endl;
@@ -91,7 +94,7 @@ void ReadWriteAttendance::displayAttendance() {
     }
 
     file.close();
-
+    // if no id matched in the txt file
     if (!employeeFound) {
         cout << "No attendance record found for Employee ID: " << EmpID << endl;
         return;
@@ -100,6 +103,7 @@ void ReadWriteAttendance::displayAttendance() {
 }
 
 void ReadWriteAttendance::displayLowAttendance(int month, double minPercentage) {
+    // opening file and handling error 
     ifstream file("Attendance.txt");
     if (!file.is_open()) {
         cerr << "Error: Could not open file." << endl;
@@ -119,7 +123,7 @@ void ReadWriteAttendance::displayLowAttendance(int month, double minPercentage) 
         string date;
         int hours;
         while (ss >> date >> hours) {
-            size_t slashPos = date.find('/');
+            size_t slashPos = date.find('/'); // when slash found 
             if (slashPos == string::npos) {
                 cerr << "Error: Invalid date format in file." << endl;
                 continue;
@@ -139,7 +143,7 @@ void ReadWriteAttendance::displayLowAttendance(int month, double minPercentage) 
     cout << "-------------------------------------------------\n";
     bool found = false;
 
-    // Iterate over the map without structured bindings
+    // Iterate over the map
     for (unordered_map<string, int>::iterator it = employeeHours.begin(); it != employeeHours.end(); ++it) {
         string id = it->first;
         int totalHours = it->second;
