@@ -201,7 +201,7 @@ void ReadWriteAttendance::writeOfficialLeave(int lvprd)
         ++day;
 
         // Handle month-end wrapping
-        if (day > 31) { // Assuming 31 days for simplicity; you can enhance this to handle exact month lengths.
+        if (day > 31) { // Assuming 31 days for simplicity
             day = 1;
             ++month;
             if (month > 12) {
