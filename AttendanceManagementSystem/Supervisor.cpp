@@ -9,64 +9,56 @@ using namespace std;
 
 bool Supervisor::reviewApplication(string EID, int lvprd, char lvtype)
 {
-	bool decision = 1;
+	bool decision = 0;
     string Eleft;
     string Cleft;
     cout << "Employee " << EID << " is requesting for a " << lvtype << " leave for a time period of " << lvprd << " days\n";
 
     ReadWriteLeave rdl(EID, lvprd, lvtype);
-    rdl.readleftleaves(&Eleft, &Cleft);
+    rdl.readleftleaves(&Eleft, &Cleft); // checking quota left
 
-    if (lvtype == 'O' || lvtype == 'U') 
-	{
+    if (lvtype == 'O' || lvtype == 'U') { // no quota, supervisor's decision
 		cout << "Enter 1 for approval and 0 for denial "; cin >> decision; cout << "\n";
 	}
-	else if (lvtype == 'C')
-	{
-        if (lvprd <= stoi(Eleft))
-        {
+
+	else if (lvtype == 'C') {
+        if (lvprd <= stoi(Eleft)) // if quota of leaves not yet full
             cout << "Enter 1 for approval and 0 for denial "; cin >> decision; cout << "\n";
-        }
 	}
-	else if (lvtype == 'E')
-	{
-        if (lvprd <= stoi(Eleft))
-        {
+
+	else if (lvtype == 'E') {
+        if (lvprd <= stoi(Eleft)) // if quota of leaves not yet full
             cout << "Enter 1 for approval and 0 for denial "; cin >> decision; cout << "\n";
-        }
 	}
 
 	return decision;
 }
 
-void Supervisor::showLowAttendanceReport()
-{
-    int month;
-    double percentage;
-    cout << "Enter the month you want to see a low attendance report for: "; cin >> month; cout << endl;
-    cout << "Enter the minimum percentage allowed: "; cin >> percentage; cout << endl;
-    ReadWriteAttendance rwa("", "", "", "");
-    rwa.displayLowAttendance(month, percentage);
+void Supervisor::showLowAttendanceReport() {
+    AttendanceReport ar;
+    ar.lowAttendanceReport();
 }
 
 void Supervisor::showAttendanceReport()
 {
     string EID;
     cout << "Enter Employee ID: "; cin >> EID; cout << endl;
-    ReadWriteAttendance rwa(EID, "", "", "");
-    rwa.displayAttendance();
+
+    AttendanceReport ar;
+    ar.generateReport(EID);
 }
 
 void Supervisor::showOutstandingLeaveReport()
 {
-    ReadWriteLeave rwl("", 0, 'a');
-    rwl.displayLeftLeaves();
+    LeaveReport lr;
+    lr.outstandingLeavesReport();
 }
 
 void Supervisor::showLeaveReport()
 {
     string EID;
     cout << "Enter the Employee ID of the employee whose Leave details are required: "; cin >> EID; cout << endl;
-    ReadWriteLeave rwl(EID, 0, 'a');
-    rwl.displayLeaveDetails();
+
+    LeaveReport lr;
+    lr.generateReport(EID);
 }

@@ -3,11 +3,13 @@
 
 #include <string>
 #include "Report.h"
+#include "ReadWrite.h"
 using namespace std;
 
 class LeaveReport : public Report {
 public:
-    void generateReport() override;
+    LeaveReport(const string repid = "", const string empid = "") : Report(repid, empid) {}
+    void generateReport(string ID) override;
     void outstandingLeavesReport();
 };
 

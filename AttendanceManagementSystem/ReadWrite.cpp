@@ -10,7 +10,7 @@ using namespace std;
 
 void ReadWriteAttendance::write()
 {
-	ifstream wr("Attendance.txt");
+	ifstream wr("Attendance.txt"); // open attendance file
     if (!wr.is_open()) {
         cout << "Unable to open the file!" << endl;
         return;
@@ -18,21 +18,21 @@ void ReadWriteAttendance::write()
 
     vector<string> lines;
     string line;
-    bool found = false; // To check if the employee ID was found
+    bool found = false; // check if the employee ID was found
     while (getline(wr, line)) {
         stringstream ss(line);
         string currentEmpID;
         ss >> currentEmpID;
 
-        if (currentEmpID == EmpID) { // Check if it's the target employee
+        if (currentEmpID == EmpID) { // check if its the target employee
             int hours = stoi(endTime) - stoi(startTime);
             hours /= 100;
             string hrs = to_string(hours);
-            line += " " + date + " " + hrs; // Append new date and start time
+            line += " " + date + " " + hrs; // append new date and start time
             found = true;
         }
 
-        lines.push_back(line); // Store the line
+        lines.push_back(line); // store the line
     }
 
     wr.close();
@@ -42,7 +42,7 @@ void ReadWriteAttendance::write()
         return;
     }
 
-    // Write the updated content back to the file
+    // write the updated content back to the file
     ofstream outFile("Attendance.txt");
     if (!outFile.is_open()) {
         cout << "Unable to open the file for writing!" << endl;

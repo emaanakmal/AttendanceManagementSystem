@@ -2,19 +2,23 @@
 #define EMPLOYEE_H
 
 #include "Person.h"
-#include "Guard.h"
+#include "ReadWrite.h"
 #include "Supervisor.h"
-#include<fstream>
+#include "Director.h"
+#include "Guard.h"
+#include "Leave.h"
+#include "AttendanceReport.h"
+#include "LeaveReport.h"
+
 #include<iostream>
-#include "Supervisor.h"
-#include "Guard.h"
+#include<fstream>
 using namespace std;
 
 class Employee : public Person {
 private:
 
 public:
-    Employee(const std::string id, const std::string name): Person(id, name, "Employee") 
+    Employee(const string id, const string name): Person(id, name, "Employee") 
     {
         ofstream create("Attendance.txt", ios::app);
         if (!create.is_open()) {
@@ -34,9 +38,9 @@ public:
 
     void showAttendanceReport();
     void showLeaveReport();
-    void applyForLeave();
+    void applyForLeave(Supervisor* spv, Director* drc);
     void MarkAttendance(Guard* grd);
-    string returnEID();
+    string getEID();
 };
 
 #endif

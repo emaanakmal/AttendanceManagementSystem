@@ -16,10 +16,13 @@ int main() {
 	Employee e2("E2", "Emaan");
 	Guard g1("guard1", "Guard");
 	Supervisor s1("supervisor1", "Supervisor");
+	Director d1("director1", "Director");
+
 	s1.showLeaveReport();
 	//s1.showLowAttendanceReport();
 	//s1.showAttendanceReport();
 	//s1.showOutstandingLeaveReport();
+	
 	//e1.MarkAttendance(&g1);
 	//e1.showAttendanceReport();
 	//e2.MarkAttendance(&g1);
@@ -27,5 +30,6 @@ int main() {
 	//e2.MarkAttendance(&g1);
 	//e1.MarkAttendance(&g1);
 	//e2.MarkAttendance(&g1);
-	//e1.applyForLeave();
+	e1.applyForLeave(&s1, &d1);
+    return 0;
 }

@@ -13,7 +13,7 @@ private:
 	string startTime;
 	string endTime;
 public:
-	ReadWriteAttendance(string id, string date, string start, string end) : EmpID(id), date(date), startTime(start), endTime(end) {}
+	ReadWriteAttendance(string id, string date = "", string start = "", string end = "") : EmpID(id), date(date), startTime(start), endTime(end) {}
 	void write();
 	void displayAttendance();
 	void displayLowAttendance(int month, double minPercentage);
@@ -26,7 +26,7 @@ private:
 	int LeavePeriod;
 	char LeaveType;
 public:
-	ReadWriteLeave(string id, int lvprd, char lvtype) : EmpID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
+	ReadWriteLeave(string id, int lvprd = 0, char lvtype = NULL) : EmpID(id), LeavePeriod(lvprd), LeaveType(lvtype) {}
 	void write();
 	void readleftleaves(string* Cleft, string* Eleft);
 	void displayLeftLeaves();

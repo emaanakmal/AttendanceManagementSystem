@@ -10,7 +10,9 @@ protected:
     string EmployeeID;
 
 public:
-    virtual void generateReport() = 0;
+    Report(const string& repid, const string& empid)
+        : ReportID(repid), EmployeeID(empid) {}
+    virtual void generateReport(string ID) = 0;
     virtual ~Report() = default;
 };
 

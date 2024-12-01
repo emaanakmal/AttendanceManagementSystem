@@ -10,5 +10,4 @@ void Attendance::update(string empID, string date, string startTime, string endT
 {
 	ReadWriteAttendance wr(empID, date, startTime, endTime);
 	wr.write();
-
 }

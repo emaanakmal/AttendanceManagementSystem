@@ -7,12 +7,12 @@ using namespace std;
 
 class Person {
 protected:
-    std::string ID;
-    std::string Name;
-    std::string Position;
+    string ID;
+    string Name;
+    string Position;
 
 public:
-    Person(const std::string& id, const std::string& name, const std::string& position)
+    Person(const string& id, const string& name, const string& position)
         : ID(id), Name(name), Position(position) {}
     virtual ~Person() = default;
 };

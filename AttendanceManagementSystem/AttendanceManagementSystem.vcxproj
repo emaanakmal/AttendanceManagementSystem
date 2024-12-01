@@ -134,7 +134,6 @@
     <ClCompile Include="Guard.cpp" />
     <ClCompile Include="Leave.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Person.cpp" />
     <ClCompile Include="LeaveReport.cpp" />
     <ClCompile Include="ReadWrite.cpp" />
     <ClCompile Include="Supervisor.cpp" />

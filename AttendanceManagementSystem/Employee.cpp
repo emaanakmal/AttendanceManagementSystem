@@ -1,20 +1,17 @@
 #include <iostream>
 #include "Employee.h"
-#include"ReadWrite.h"
-#include "Supervisor.h"
-#include "Guard.h"
-#include "Leave.h"
 
 void Employee::showAttendanceReport() {
-    ReadWriteAttendance rwa(ID, "", "", "");
-    rwa.displayAttendance();
+    AttendanceReport ar;
+    ar.generateReport(ID);
 }
 
 void Employee::showLeaveReport() {
-   
+    LeaveReport lr;
+    lr.generateReport(ID);
 }
 
-void Employee::applyForLeave() {
+void Employee::applyForLeave(Supervisor* spv, Director* drc) {
     int lvprd;
     char lvtype;
     string lvdate;
@@ -22,17 +19,21 @@ void Employee::applyForLeave() {
     cout << "Enter date of application: "; cin >> lvdate; cout << endl;
     cout << "Enter leave period: "; cin >> lvprd; cout << "\n";
     cout << "Casual(C) Earned(E) Official(E) Unpaid(U)\nEnter leave type: "; cin >> lvtype; cout << "\n";
+
+    // stop if applied for casual leave period > 4
     if (lvtype == 'C' && lvprd > 4)
     {
         cout << "Leave period for casual leaves cannot be greater than 4. Please apply again\n";
         return;
     }
+
+    // otherwise send for approval
     Leave lv(ID, lvprd, lvtype);
-    bool decision = lv.RequestApproval();
+    bool decision = lv.RequestApproval(spv, drc);
    
     if (decision == 1)
     {
-        cout << "Request accpeted!\n";
+        cout << "Request accepted!\n";
         lv.addLeave(lvdate);
         lv.updateTable();
     }
@@ -44,7 +45,7 @@ void Employee::MarkAttendance(Guard* grd) {
     grd->mark(ID);
 }
 
-string Employee::returnEID()
+string Employee::getEID()
 {
     return ID;
 }

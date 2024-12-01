@@ -2,6 +2,7 @@
 #include "ReadWrite.h"
 #include "Employee.h"
 #include "Supervisor.h"
+#include "Director.h"
 #include <iostream>
 #include<fstream>
 #include<sstream>
@@ -9,10 +10,16 @@
 #include<string>
 using namespace std;
 
-bool Leave:: RequestApproval()
+bool Leave::RequestApproval(Supervisor* spv, Director* drc)
 {
-	Supervisor s1("supervisor1", "Supervisor");
-	bool decision = s1.reviewApplication(EID, LeavePeriod, LeaveType);
+    // ask supervisor for approval
+    bool decision = spv->reviewApplication(EID, LeavePeriod, LeaveType);
+
+    // for long leaves (earned and official), ask director for approval too
+    if (this->LeaveType == 'E' || this->LeaveType == 'U') {
+        decision = drc->reviewApplication(EID, LeavePeriod, LeaveType);
+    }
+
 	return decision;
 }	
 

@@ -1,5 +1,14 @@
 #include <iostream>
 #include "LeaveReport.h"
 
-void generateReport() {}
-void lowAttendanceReport() {}
+void LeaveReport::generateReport(string ID)
+{
+	ReadWriteLeave rwl(ID);
+	rwl.displayLeaveDetails();
+}
+
+void LeaveReport::outstandingLeavesReport()
+{
+	ReadWriteLeave rwl("");
+	rwl.displayLeftLeaves();
+}
