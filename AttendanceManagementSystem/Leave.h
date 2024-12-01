@@ -1,11 +1,12 @@
 #ifndef LEAVE_H
 #define LEAVE_H
 
-#include <iostream>
-#include <string>
 #include "Supervisor.h"
 #include "Director.h"
+#include "Employee.h"
 
+#include <iostream>
+#include <string>
 using namespace std;
 
 class Leave {

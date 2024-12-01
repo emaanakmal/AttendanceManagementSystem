@@ -3,12 +3,12 @@
 
 #include "Person.h"
 #include "ReadWrite.h"
-#include "Supervisor.h"
-#include "Director.h"
 #include "Guard.h"
 #include "Leave.h"
 #include "AttendanceReport.h"
 #include "LeaveReport.h"
+#include "Supervisor.h"
+#include "Director.h"
 
 #include<iostream>
 #include<fstream>

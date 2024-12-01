@@ -1,8 +1,7 @@
 #include "Leave.h"
 #include "ReadWrite.h"
 #include "Employee.h"
-#include "Supervisor.h"
-#include "Director.h"
+
 #include <iostream>
 #include<fstream>
 #include<sstream>

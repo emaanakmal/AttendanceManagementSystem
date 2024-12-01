@@ -1,16 +1,17 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR_H
 
-#include "Employee.h"
+#include "Person.h"
 #include "ReadWrite.h"
+#include "AttendanceReport.h"
+#include "LeaveReport.h"
 #include <string>
 using namespace std;
 
-class Director : public Employee {
+class Director : public Person {
 public:
     Director(const string& id, const string& name)
-        : Employee(id, name) {
-        Position = "Director";
+        : Person(id, name, "Director") {
     }
 
     void showLowAttendanceReport();
