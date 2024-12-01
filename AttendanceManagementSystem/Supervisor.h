@@ -1,8 +1,10 @@
 #ifndef SUPERVISOR_H
 #define SUPERVISOR_H
 
-#include "Employee.h"
 #include "Person.h"
+#include "ReadWrite.h"
+#include "AttendanceReport.h"
+#include "LeaveReport.h"
 
 class Supervisor : public Person {
 public:

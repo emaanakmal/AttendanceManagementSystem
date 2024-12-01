@@ -10,7 +10,7 @@ using namespace std;
 bool Director::reviewApplication(string EID, int lvprd, char lvtype) { 
     // director approves official and earned leaves after supervisors has done so too and passed it on
 
-    bool decision = 0;
+    bool decision = 1;
     string Eleft;
     string Cleft;
     cout << "Employee " << EID << " is requesting for a " << lvtype << " leave for a time period of " << lvprd << " days\n";
