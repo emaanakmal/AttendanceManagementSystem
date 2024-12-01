@@ -80,6 +80,13 @@ void Leave::addLeave(string date)
 
 void Leave::updateTable()
 {
+    if (LeaveType == 'O')
+    {
+        string start;
+        cout << "Enter start date of leave: "; cin >> start; cout << endl;
+        ReadWriteAttendance rwa(EID, start, 0, 0);
+        rwa.writeOfficialLeave(LeavePeriod);
+    }
 	ReadWriteLeave rwl(EID, LeavePeriod, LeaveType);
 	rwl.write();
 }

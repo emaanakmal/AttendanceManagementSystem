@@ -17,6 +17,7 @@ public:
 	void write();
 	void displayAttendance();
 	void displayLowAttendance(int month, double minPercentage);
+	void writeOfficialLeave(int lvprd);
 };
 
 class ReadWriteLeave
